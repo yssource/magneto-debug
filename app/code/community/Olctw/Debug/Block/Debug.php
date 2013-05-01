@@ -214,7 +214,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
     }
 
     public function getDebugMediaUrl() {
-        return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . 'frontend/base/default/debug/';
+        return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . 'frontend/base/default/olctw_debug/';
     }
 
 }
