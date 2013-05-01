@@ -55,92 +55,92 @@
         <events>
             <controller_action_layout_generate_blocks_after>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onLayoutGenerate</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </controller_action_layout_generate_blocks_after>
 
             <core_block_abstract_to_html_before>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onBlockToHtml</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </core_block_abstract_to_html_before>
 
             <core_block_abstract_to_html_after>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onBlockToHtmlAfter</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </core_block_abstract_to_html_after>
 
             <controller_action_postdispatch>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onActionPostDispatch</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </controller_action_postdispatch>
 
             <core_collection_abstract_load_before>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onCollectionLoad</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </core_collection_abstract_load_before>
 
             <eav_collection_abstract_load_before>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onEavCollectionLoad</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </eav_collection_abstract_load_before>
 
 
             <!-- <core_block_abstract_prepare_layout_after> -->
             <!--     <observers> -->
-            <!--         <debug_observer> -->
+            <!--         <olctw_debug_observer> -->
             <!--             <type>singleton</type> -->
             <!--             <class>debug/observer</class> -->
             <!--             <method>onPrepareLayout</method> -->
-            <!--         </debug_observer> -->
+            <!--         </olctw_debug_observer> -->
             <!--     </observers> -->
             <!-- </core_block_abstract_prepare_layout_after> -->
 
             <model_load_after>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onModelLoad</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </model_load_after>
 
             <controller_action_predispatch>
                 <observers>
-                    <debug_observer>
+                    <olctw_debug_observer>
                         <type>singleton</type>
                         <class>debug/observer</class>
                         <method>onActionPreDispatch</method>
-                    </debug_observer>
+                    </olctw_debug_observer>
                 </observers>
             </controller_action_predispatch>
         </events>
