@@ -1,16 +1,16 @@
 <table>
-	<thead>
-		<tr>
+    <thead>
+        <tr>
             <th><?php echo $this->__("#") ?></th>
             <th><?php echo $this->__("Config") ?></th>
             <th><?php echo $this->__("Value") ?></th>
-		</tr>
-	</thead>
+        </tr>
+    </thead>
     <tbody>
-        <div id="config-search-results">
-        <?php if(count($items)): ?>
-            <?php $row=0 ?>
-            <?php foreach($items as $key=>$value): ?>
+    <div id="config-search-results">
+        <?php if (count($items)): ?>
+            <?php $row = 0 ?>
+            <?php foreach ($items as $key => $value): ?>
                 <tr>
                     <td><?php echo $row ?></td>
                     <td><?php echo $key ?></td>
@@ -21,6 +21,6 @@
         <?php else: ?>
             <tr><td colspan="3">Configurations not found for this query.</td></tr>
         <?php endif; ?>
-        </div>
-	</tbody>
+    </div>
+</tbody>
 </table>

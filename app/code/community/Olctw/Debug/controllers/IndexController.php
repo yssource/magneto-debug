@@ -1,7 +1,7 @@
 <?php
 
-class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
-{
+class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
+
     /**
      * Return block content
      *
@@ -10,8 +10,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return string
      */
-    private function _debugPanel($title, $content)
-    {
+    private function _debugPanel($title, $content) {
         $block = $this->getLayout()->createBlock('debug/abstract');
         $block->setTemplate('debug/simplepanel.phtml');
         $block->assign('title', $title);
@@ -23,8 +22,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      * @param null $defaultUrl
      * @return Mage_Core_Controller_Varien_Action
      */
-    protected function _redirectReferer($defaultUrl = null)
-    {
+    protected function _redirectReferer($defaultUrl = null) {
         if ($store = $this->getRequest()->getParam('store')) {
             Mage::app()->setCurrentStore($store);
         }
@@ -36,8 +34,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return string
      */
-    public function viewTemplateAction()
-    {
+    public function viewTemplateAction() {
         $fileName = $this->getRequest()->get('template');
 
         $absoluteFilePath = realpath(Mage::getBaseDir('design') . DS . $fileName);
@@ -52,8 +49,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return string
      */
-    public function viewBlockAction()
-    {
+    public function viewBlockAction() {
         $blockClass = $this->getRequest()->get('block');
         $absoluteFilePath = Mage::helper('debug')->getBlockFilename($blockClass);
 
@@ -68,8 +64,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function viewSqlSelectAction()
-    {
+    public function viewSqlSelectAction() {
         $con = Mage::getSingleton('core/resource')->getConnection('core_write');
         $query = $this->getRequest()->getParam('sql');
         $queryParams = $this->getRequest()->getParam('params');
@@ -98,15 +93,14 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * @return void
      */
-    public function viewFilesWithHandleAction()
-    {
+    public function viewFilesWithHandleAction() {
         $layoutHandle = $this->getRequest()->getParam('layout');
         $storeId = $this->getRequest()->getParam('storeId');
         $designArea = $this->getRequest()->getParam('area');
 
         $title = "Files with layout updates for handle {$layoutHandle}";
         if (!$layoutHandle) {
-
+            
         }
 
         $updateFiles = Mage::helper('debug')->getLayoutUpdatesFiles($storeId, $designArea);
@@ -120,10 +114,10 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
         $handleFiles = array();
         foreach ($updateFiles as $file) {
             $filename = $designPackage->getLayoutFilename($file, array(
-                                                               '_area' => $designPackage->getArea(),
-                                                               '_package' => $designPackage->getPackageName(),
-                                                               '_theme' => $designPackage->getTheme('layout')
-                                                          ));
+                '_area' => $designPackage->getArea(),
+                '_package' => $designPackage->getPackageName(),
+                '_theme' => $designPackage->getTheme('layout')
+                    ));
             if (!is_readable($filename)) {
                 continue;
             }
@@ -142,10 +136,10 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
 
         // Search updates for handle in DB
         $bind = array(
-            'store_id'  => $storeId,
-            'area'      => $designArea,
-            'package'   => $designPackage->getPackageName(),
-            'theme'     => $designPackage->getTheme('layout'),
+            'store_id' => $storeId,
+            'area' => $designArea,
+            'package' => $designPackage->getPackageName(),
+            'theme' => $designPackage->getTheme('layout'),
             'layout_update_handle' => $layoutHandle
         );
 
@@ -157,22 +151,20 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
 
         /* @var $select Varien_Db_Select */
         $select = $readAdapter->select()
-            ->from(array('layout_update' => $layoutResourceModel->getMainTable()), array('xml'))
-            ->join(array('link' => $layoutResourceModel->getTable('core/layout_link')),
-            'link.layout_update_id=layout_update.layout_update_id',
-            '')
-            ->where('link.store_id IN (0, :store_id)')
-            ->where('link.area = :area')
-            ->where('link.package = :package')
-            ->where('link.theme = :theme')
-            ->where('layout_update.handle = :layout_update_handle')
-            ->order('layout_update.sort_order ' . Varien_Db_Select::SQL_ASC);
-        
+                ->from(array('layout_update' => $layoutResourceModel->getMainTable()), array('xml'))
+                ->join(array('link' => $layoutResourceModel->getTable('core/layout_link')), 'link.layout_update_id=layout_update.layout_update_id', '')
+                ->where('link.store_id IN (0, :store_id)')
+                ->where('link.area = :area')
+                ->where('link.package = :package')
+                ->where('link.theme = :theme')
+                ->where('layout_update.handle = :layout_update_handle')
+                ->order('layout_update.sort_order ' . Varien_Db_Select::SQL_ASC);
+
         $result = $readAdapter->fetchCol($select, $bind);
 
         if (count($result)) {
             $handleFiles['DATABASE'] = array();
-            foreach ($result as $dbLayoutUpdate){
+            foreach ($result as $dbLayoutUpdate) {
                 $handleFiles['DATABASE'][] = new Varien_Simplexml_Element($dbLayoutUpdate);
             }
         }
@@ -190,8 +182,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function viewSqlExplainAction()
-    {
+    public function viewSqlExplainAction() {
         $con = Mage::getSingleton('core/resource')->getConnection('core_write');
         $query = $this->getRequest()->getParam('sql');
         $queryParams = $this->getRequest()->getParam('params');
@@ -223,8 +214,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function clearCacheAction()
-    {
+    public function clearCacheAction() {
         $content = Mage::helper('debug')->cleanCache();
         Mage::getSingleton('core/session')->addSuccess("Magento's caches were cleared.");
         $this->_redirectReferer();
@@ -235,8 +225,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function toggleTranslateInlineAction()
-    {
+    public function toggleTranslateInlineAction() {
         $forStore = $this->getRequest()->getParam('store', 1);
 
         $currentStatus = Mage::getStoreConfig('dev/translate_inline/active', $forStore);
@@ -263,8 +252,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function toggleTemplateHintsAction()
-    {
+    public function toggleTemplateHintsAction() {
         $forStore = $this->getRequest()->getParam('store', 1);
 
         $currentStatus = Mage::app()->getStore($forStore)->getConfig('dev/debug/template_hints');
@@ -285,8 +273,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return Olctw_Debug_IndexController|string
      */
-    public function toggleModuleStatusAction()
-    {
+    public function toggleModuleStatusAction() {
         $title = "Toggle Module Status";
         $moduleName = $this->getRequest()->getParam('module');
         if (!$moduleName) {
@@ -310,10 +297,10 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
             return $value ? 'true' : 'false';
         }
 
-        $contents = '<br/>Active status switched to ' . (string)$moduleNewStatus . ' for module {$moduleName} in file {$moduleConfigFile}:';
+        $contents = '<br/>Active status switched to ' . (string) $moduleNewStatus . ' for module {$moduleName} in file {$moduleConfigFile}:';
         $contents .= '<br/><code>' . htmlspecialchars($configContent) . '</code>';
 
-        $configContent = str_replace('<active>' . (string)$moduleCurrentStatus . '</active>', '<active>' . (string)$moduleNewStatus . '</active>', $configContent);
+        $configContent = str_replace('<active>' . (string) $moduleCurrentStatus . '</active>', '<active>' . (string) $moduleNewStatus . '</active>', $configContent);
 
         if (file_put_contents($moduleConfigFile, $configContent) === FALSE) {
             echo $this->_debugPanel($title, "Failed to write configuration. (Web Server's permissions for {$moduleConfigFile}?!)");
@@ -333,8 +320,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return string
      */
-    public function downloadConfigAction()
-    {
+    public function downloadConfigAction() {
         $this->getResponse()->setHeader('Content-type', 'text/xml', true);
         $this->getResponse()->setBody(Mage::app()->getConfig()->getNode()->asXML());
     }
@@ -344,8 +330,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function downloadConfigAsTextAction()
-    {
+    public function downloadConfigAsTextAction() {
         $items = array();
         $configs = Mage::app()->getConfig()->getNode();
         Olctw_Debug_Block_Config::xml2array($configs, $items);
@@ -364,15 +349,14 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function toggleSqlProfilerAction()
-    {
+    public function toggleSqlProfilerAction() {
         $localConfigFile = Mage::getBaseDir('etc') . DS . 'local.xml';
         $localConfigBackupFile = Mage::getBaseDir('etc') . DS . 'local-magneto.xml_';
 
         $configContent = file_get_contents($localConfigFile);
         $xml = new SimpleXMLElement($configContent);
 
-        if ((int)$xml->global->resources->default_setup->connection->profiler != 1) {
+        if ((int) $xml->global->resources->default_setup->connection->profiler != 1) {
             $xml->global->resources->default_setup->connection->addChild('profiler', 1);
         } else {
             unset($xml->global->resources->default_setup->connection->profiler);
@@ -400,13 +384,12 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function searchGroupedClassAction()
-    {
+    public function searchGroupedClassAction() {
         if ($this->getRequest()->isPost()) {
             $uri = $this->getRequest()->getPost('uri');
             $groupType = $this->getRequest()->getPost('group');
 
-            if ($groupType=='all') {
+            if ($groupType == 'all') {
                 $groupTypes = array('model', 'block', 'helper');
             } else {
                 $groupTypes = array($groupType);
@@ -435,8 +418,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      *
      * @return void
      */
-    public function searchConfigAction()
-    {
+    public function searchConfigAction() {
         if ($this->getRequest()->isPost()) {
             $result['error'] = 0;
 
@@ -451,8 +433,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
 
                 $items = array();
 
-                foreach ($configKeys as $configKey){
-                    if (strpos($configKey, $query)!==FALSE){
+                foreach ($configKeys as $configKey) {
+                    if (strpos($configKey, $query) !== FALSE) {
                         $items[$configKey] = $configArray[$configKey];
                     }
                 }
@@ -471,8 +453,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
      * Return last 100 lines of log file.
      *
      */
-    public function viewLogAction()
-    {
+    public function viewLogAction() {
         $file = $this->getRequest()->getParam('file');
 
         if (!empty($file)) {
@@ -497,12 +478,11 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
         }
     }
 
-    public function togglePageCacheDebugAction()
-    {
+    public function togglePageCacheDebugAction() {
         $forStore = $this->getRequest()->getParam('store', 1);
 
         if (class_exists('Enterprise_PageCache_Model_Processor')) {
-            $configPath =  Enterprise_PageCache_Model_Processor::XML_PATH_CACHE_DEBUG;
+            $configPath = Enterprise_PageCache_Model_Processor::XML_PATH_CACHE_DEBUG;
             $currentStatus = Mage::getStoreConfig($configPath);
 
             $config = Mage::getModel('core/config');
@@ -512,4 +492,5 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
             $this->_redirectReferer();
         }
     }
+
 }

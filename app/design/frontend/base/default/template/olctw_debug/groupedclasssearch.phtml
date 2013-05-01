@@ -1,17 +1,17 @@
 <table>
-	<thead>
-		<tr>
+    <thead>
+        <tr>
             <th><?php echo $this->__('#') ?></th>
             <th><?php echo $this->__('Group Type') ?></th>
             <th><?php echo $this->__('Search Results') ?></th>
             <th><?php echo $this->__('File path') ?></th>
-		</tr>
-	</thead>
+        </tr>
+    </thead>
     <tbody>
-        <div id="class-search-results">
-        <?php if(count($items)): ?>
+    <div id="class-search-results">
+        <?php if (count($items)): ?>
             <?php $row = 0 ?>
-            <?php foreach($items as $key=>$value): ?>
+            <?php foreach ($items as $key => $value): ?>
                 <tr>
                     <td><?php echo $row ?></td>
                     <td><?php echo $key ?></td>
@@ -23,6 +23,6 @@
         <?php else: ?>
             <tr><td colspan="3">Grouped classes not found for this uri.</td></tr>
         <?php endif; ?>
-        </div>
-	</tbody>
+    </div>
+</tbody>
 </table>

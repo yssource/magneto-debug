@@ -1,14 +1,13 @@
 <?php
 
-class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
-{
+class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract {
+
     /**
      * Cleans Magento's cache
      *
      * @return void
      */
-    public function cleanCache()
-    {
+    public function cleanCache() {
         Mage::app()->cleanCache();
     }
 
@@ -18,20 +17,20 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
      * @return bool
      */
     function isRequestAllowed() {
-        $isDebugEnable = (int)Mage::getStoreConfig('debug/options/enable');
+        $isDebugEnable = (int) Mage::getStoreConfig('debug/options/enable');
         $clientIp = $this->_getRequest()->getClientIp();
         $allow = false;
 
-        if( $isDebugEnable ){
+        if ($isDebugEnable) {
             $allow = true;
 
             // Code copy-pasted from core/helper, isDevAllowed method 
             // I cannot use that method because the client ip is not always correct (e.g varnish)
             $allowedIps = Mage::getStoreConfig('dev/restrict/allow_ips');
-            if ( $isDebugEnable && !empty($allowedIps) && !empty($clientIp)) {
+            if ($isDebugEnable && !empty($allowedIps) && !empty($clientIp)) {
                 $allowedIps = preg_split('#\s*,\s*#', $allowedIps, null, PREG_SPLIT_NO_EMPTY);
                 if (array_search($clientIp, $allowedIps) === false
-                    && array_search(Mage::helper('core/http')->getHttpHost(), $allowedIps) === false) {
+                        && array_search(Mage::helper('core/http')->getHttpHost(), $allowedIps) === false) {
                     $allow = false;
                 }
             }
@@ -47,39 +46,38 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
      * 
      * @return string
      */
-	function formatSize($size) {
-		$sizes = array(" Bytes", " KB", " MB", " GB", " TB", " PB", " EB", " ZB", " YB");
-		if ($size == 0) {
-			 return('n/a'); 
-		} else {
-			return ( round($size/pow(1024, ($i = floor(log($size, 1024)))), 2) . $sizes[$i]); 
-		}
-	}
-	
-	public function getMemoryUsage(){
-		return $this->formatSize( memory_get_peak_usage(TRUE) );
-	}
+    function formatSize($size) {
+        $sizes = array(" Bytes", " KB", " MB", " GB", " TB", " PB", " EB", " ZB", " YB");
+        if ($size == 0) {
+            return('n/a');
+        } else {
+            return ( round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . $sizes[$i]);
+        }
+    }
 
-	public function getScriptDuration(){
-		if( function_exists('xdebug_time_index') ){
-			return sprintf("%0.2f", xdebug_time_index() );
-		} else {
-			return 'n/a';
-		}
-	}
-	
-	public static function sortModelCmp($a, $b) {
-		if($a['occurrences']==$b['occurrences'])
-			return 0;
-		return ($a['occurrences'] < $b['occurrences']) ? 1 : -1;
-	}
-	
-	public function sortModelsByOccurrences(&$models) {
-		usort($models, array('Olctw_Debug_Helper_Data', 'sortModelCmp'));
-	}
+    public function getMemoryUsage() {
+        return $this->formatSize(memory_get_peak_usage(TRUE));
+    }
 
-    public function getBlockFilename($blockClass)
-    {
+    public function getScriptDuration() {
+        if (function_exists('xdebug_time_index')) {
+            return sprintf("%0.2f", xdebug_time_index());
+        } else {
+            return 'n/a';
+        }
+    }
+
+    public static function sortModelCmp($a, $b) {
+        if ($a['occurrences'] == $b['occurrences'])
+            return 0;
+        return ($a['occurrences'] < $b['occurrences']) ? 1 : -1;
+    }
+
+    public function sortModelsByOccurrences(&$models) {
+        usort($models, array('Olctw_Debug_Helper_Data', 'sortModelCmp'));
+    }
+
+    public function getBlockFilename($blockClass) {
         return mageFindClassFile($blockClass);
     }
 
@@ -105,7 +103,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
                 if ($module && Mage::getStoreConfigFlag('advanced/modules_disable_output/' . $module, $storeId)) {
                     continue;
                 }
-                $updateFiles[] = (string)$updateNode->file;
+                $updateFiles[] = (string) $updateNode->file;
             }
         }
         // custom local layout updates file - load always last
@@ -123,8 +121,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array|int
      */
-    public function getLastRows($file, $lines, $header = null)
-    {
+    public function getLastRows($file, $lines, $header = null) {
         // Number of lines read per time
         $bufferlength = 1024;
         $aliq = "";
@@ -132,7 +129,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
         $tmp = array();
         $tmp2 = array();
 
-        if (!($handle = fopen($file , "r"))) {
+        if (!($handle = fopen($file, "r"))) {
             return "Could not fopen $file";
         }
 
@@ -144,7 +141,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
         fseek($handle, 0, SEEK_END);
         $filesize = ftell($handle);
 
-        $position= - min($bufferlength,$filesize);
+        $position = - min($bufferlength, $filesize);
 
         while ($lines > 0) {
             if (fseek($handle, $position, SEEK_END)) {
@@ -160,7 +157,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
 
             // Split by line
             $cnt = (count($tmp) - 1);
-            for ($i = 0; $i < count($tmp); $i++ ) {
+            for ($i = 0; $i < count($tmp); $i++) {
                 unset($tmp[0]);
             }
             unset($tmp);
@@ -185,7 +182,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
 
                 // Discard the header line if it is there
                 if ($header &&
-                    (count($line_arr) <= $lines)) {
+                        (count($line_arr) <= $lines)) {
                     array_shift($line_arr);
                 }
 
@@ -202,7 +199,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
 
                 // Discard the header line if it is there
                 if ($header &&
-                    (count($line_arr) <= $lines)) {
+                        (count($line_arr) <= $lines)) {
                     array_shift($line_arr);
                 }
 
@@ -232,8 +229,8 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
         return $line_arr;
     }
 
-    public function isPanelVisible($panelTitle)
-    {
+    public function isPanelVisible($panelTitle) {
         return Mage::getStoreConfig('debug/options/debug_panel_' . strtolower($panelTitle) . '_visibility');
     }
+
 }
