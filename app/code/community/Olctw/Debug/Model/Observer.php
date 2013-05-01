@@ -1,5 +1,5 @@
 <?php
-class Magneto_Debug_Model_Observer {
+class Olctw_Debug_Model_Observer {
 
     private $_actions = array();
     // List of assoc array with class, type and sql keys
@@ -39,7 +39,7 @@ class Magneto_Debug_Model_Observer {
         }
 
         // Don't list blocks from Debug module
-        if( strpos($blockClass, 'Magneto_Debug_Block')===0 ) {
+        if( strpos($blockClass, 'Olctw_Debug_Block')===0 ) {
             return true;
         }
 
@@ -87,7 +87,7 @@ class Magneto_Debug_Model_Observer {
      * that are about to being rendered.
      *
      * @param Varien_Event_Observer $observer
-     * @return Magneto_Debug_Model_Observer
+     * @return Olctw_Debug_Model_Observer
      */
     public function onBlockToHtml(Varien_Event_Observer $observer) {
         /** @var $event Varien_Event */
@@ -125,7 +125,7 @@ class Magneto_Debug_Model_Observer {
      * spent in block's _toHtml (rendering time).
      *
      * @param Varien_Event_Observer $observer
-     * @return Magneto_Debug_Model_Observer
+     * @return Olctw_Debug_Model_Observer
      */
     public function onBlockToHtmlAfter(Varien_Event_Observer $observer) {
         $event = $observer->getEvent();
@@ -216,9 +216,9 @@ class Magneto_Debug_Model_Observer {
     function onActionPreDispatch(Varien_Event_Observer $observer){
         $action = $observer->getEvent()->getControllerAction();
         $moduleName = $action->getRequest()->getControllerModule();
-        if( strpos($moduleName, "Magneto_Debug") === 0 && !Mage::helper('debug')->isRequestAllowed() ){
+        if( strpos($moduleName, "Olctw_Debug") === 0 && !Mage::helper('debug')->isRequestAllowed() ){
 
-            Mage::log("Access to Magneto_Debug's actions blocked: dev mode is set to false.");
+            Mage::log("Access to Olctw_Debug's actions blocked: dev mode is set to false.");
             // $response = $action->getResponse();
             // $response->setHttpResponseCode(404);
             // $response->setBody('Site access denied.');

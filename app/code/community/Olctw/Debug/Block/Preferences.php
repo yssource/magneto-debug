@@ -1,9 +1,9 @@
 <?php
-class Magneto_Debug_Block_Preferences extends Magneto_Debug_Block_Abstract
+class Olctw_Debug_Block_Preferences extends Olctw_Debug_Block_Abstract
 {
     public function getPanels()
     {
-        /* @var $debugBlock Magneto_Debug_Block_Debug */
+        /* @var $debugBlock Olctw_Debug_Block_Debug */
         $debugBlock = $this->getParentBlock();
         return $debugBlock->getPanels();
     }

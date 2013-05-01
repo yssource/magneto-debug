@@ -1,5 +1,5 @@
 <?php
-class Magneto_Debug_Block_Debug extends Magneto_Debug_Block_Abstract
+class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract
 {
 
 
@@ -18,7 +18,7 @@ class Magneto_Debug_Block_Debug extends Magneto_Debug_Block_Abstract
 
     public function getVersion()
     {
-        return (string)Mage::getConfig()->getNode('modules/Magneto_Debug/version');
+        return (string)Mage::getConfig()->getNode('modules/Olctw_Debug/version');
     }
     
     private function createDummyPanel($title){
@@ -210,7 +210,7 @@ class Magneto_Debug_Block_Debug extends Magneto_Debug_Block_Abstract
 
     public function getVisiblePanels()
     {
-        /* @var $helper Magneto_Debug_Helper_Data */
+        /* @var $helper Olctw_Debug_Helper_Data */
         $helper = Mage::helper('debug');
         $panels = $this->getPanels();
         $visiblePanels = array();

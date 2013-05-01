@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Magneto_Debug>
+        <Olctw_Debug>
             <active>true</active>
             <codePool>community</codePool>
-        </Magneto_Debug>
+        </Olctw_Debug>
     </modules>
-</config> 
+</config>

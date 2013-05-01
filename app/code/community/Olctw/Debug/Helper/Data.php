@@ -1,6 +1,6 @@
 <?php
 
-class Magneto_Debug_Helper_Data extends Mage_Core_Helper_Abstract
+class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract
 {
     /**
      * Cleans Magento's cache
@@ -75,7 +75,7 @@ class Magneto_Debug_Helper_Data extends Mage_Core_Helper_Abstract
 	}
 	
 	public function sortModelsByOccurrences(&$models) {
-		usort($models, array('Magneto_Debug_Helper_Data', 'sortModelCmp'));
+		usort($models, array('Olctw_Debug_Helper_Data', 'sortModelCmp'));
 	}
 
     public function getBlockFilename($blockClass)

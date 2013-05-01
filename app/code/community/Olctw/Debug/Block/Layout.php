@@ -1,5 +1,5 @@
 <?php
-class Magneto_Debug_Block_Layout extends Magneto_Debug_Block_Abstract
+class Olctw_Debug_Block_Layout extends Olctw_Debug_Block_Abstract
 {
 
     public function getViewHandleUrl($layoutHandle)

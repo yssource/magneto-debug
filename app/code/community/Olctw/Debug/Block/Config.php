@@ -1,5 +1,5 @@
 <?php
-class Magneto_Debug_Block_Config extends Magneto_Debug_Block_Abstract
+class Olctw_Debug_Block_Config extends Olctw_Debug_Block_Abstract
 {
     static function xml2array($xml, &$arr, $parentKey=''){
         if( !$xml )

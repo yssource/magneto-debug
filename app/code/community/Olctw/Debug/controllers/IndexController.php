@@ -1,6 +1,6 @@
 <?php
 
-class Magneto_Debug_IndexController extends Mage_Core_Controller_Front_Action
+class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action
 {
     /**
      * Return block content
@@ -283,7 +283,7 @@ class Magneto_Debug_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * Turn on/off modules
      *
-     * @return Magneto_Debug_IndexController|string
+     * @return Olctw_Debug_IndexController|string
      */
     public function toggleModuleStatusAction()
     {
@@ -348,7 +348,7 @@ class Magneto_Debug_IndexController extends Mage_Core_Controller_Front_Action
     {
         $items = array();
         $configs = Mage::app()->getConfig()->getNode();
-        Magneto_Debug_Block_Config::xml2array($configs, $items);
+        Olctw_Debug_Block_Config::xml2array($configs, $items);
 
         $content = '';
         foreach ($items as $key => $value) {
@@ -446,7 +446,7 @@ class Magneto_Debug_IndexController extends Mage_Core_Controller_Front_Action
                 $configs = Mage::app()->getConfig()->getNode();
                 $configArray = array();
 
-                Magneto_Debug_Block_Config::xml2array($configs, $configArray);
+                Olctw_Debug_Block_Config::xml2array($configs, $configArray);
                 $configKeys = array_keys($configArray);
 
                 $items = array();
