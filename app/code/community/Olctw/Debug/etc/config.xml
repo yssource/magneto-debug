@@ -17,9 +17,9 @@
         </routers>
         <layout>
             <updates>
-                <debug>
-                    <file>debug.xml</file>
-                </debug>
+                <olctw_debug_frontend_layout>
+                    <file>olctw_debug/debug.xml</file>
+                </olctw_debug_frontend_layout>
             </updates>
         </layout>
     </frontend>
@@ -188,9 +188,9 @@
         </acl>
         <layout>
             <updates>
-                <debugadmin>
-                    <file>debug.xml</file>
-                </debugadmin>
+                <olctw_debug_admin_layout>
+                    <file>olctw_debug/debug.xml</file>
+                </olctw_debug_admin_layout>
             </updates>
         </layout>
     </adminhtml>

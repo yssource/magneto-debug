@@ -1,7 +1,7 @@
 <?php
 
 class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
-
+    
     /**
      * Return block content
      *
@@ -11,8 +11,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
      * @return string
      */
     private function _debugPanel($title, $content) {
-        $block = $this->getLayout()->createBlock('debug/abstract');
-        $block->setTemplate('debug/simplepanel.phtml');
+        $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+        $block->setTemplate('olctw_debug/simplepanel.phtml');
         $block->assign('title', $title);
         $block->assign('content', $content);
         return $block->toHtml();
@@ -81,8 +81,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
             }
         }
 
-        $block = $this->getLayout()->createBlock('debug/abstract');
-        $block->setTemplate('debug/arrayformat.phtml');
+        $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+        $block->setTemplate('olctw_debug/arrayformat.phtml');
         $block->assign('title', 'SQL Select');
         $block->assign('headers', $headers);
         $block->assign('items', $items);
@@ -169,8 +169,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
             }
         }
 
-        $block = $this->getLayout()->createBlock('debug/abstract');
-        $block->setTemplate('debug/handledetails.phtml');
+        $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+        $block->setTemplate('olctw_debug/handledetails.phtml');
         $block->assign('title', $title);
         $block->assign('handleFiles', $handleFiles);
 
@@ -199,8 +199,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
             }
         }
 
-        $block = $this->getLayout()->createBlock('debug/abstract');
-        $block->setTemplate('debug/arrayformat.phtml');
+        $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+        $block->setTemplate('olctw_debug/arrayformat.phtml');
         $block->assign('title', 'SQL Explain');
         $block->assign('headers', $headers);
         $block->assign('items', $items);
@@ -403,8 +403,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
                     $items[$type]['filepath'] = mageFindClassFile($items[$type]['class']);
                 }
 
-                $block = $this->getLayout()->createBlock('debug/abstract');
-                $block->setTemplate('debug/groupedclasssearch.phtml');
+                $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+                $block->setTemplate('olctw_debug/groupedclasssearch.phtml');
                 $block->assign('items', $items);
                 $this->getResponse()->setBody($block->toHtml());
             } else {
@@ -438,8 +438,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
                         $items[$configKey] = $configArray[$configKey];
                     }
                 }
-                $block = $this->getLayout()->createBlock('debug/abstract');
-                $block->setTemplate('debug/configsearch.phtml');
+                $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+                $block->setTemplate('olctw_debug/configsearch.phtml');
                 $block->assign('items', $items);
                 $this->getResponse()->setBody($block->toHtml());
             } else {
@@ -466,8 +466,8 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
                     $result = array($result);
                 }
 
-                $block = $this->getLayout()->createBlock('debug/abstract');
-                $block->setTemplate('debug/logdetails.phtml');
+                $block = $this->getLayout()->createBlock('olctw_debug/abstract');
+                $block->setTemplate('olctw_debug/logdetails.phtml');
                 $block->assign('title', 'Log details : ' . $file);
                 $block->assign('items', $result);
 
