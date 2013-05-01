@@ -26,7 +26,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'nav_title' => $title,
             'nav_subtitle' => 'Subtitle for ' . $title,
             'content' => 'Some content for ' . $title,
-            'template' => 'debug_versions_panel'
+            'template' => 'olctw_debug_versions_panel'
         );
         return $panel;
     }
@@ -41,7 +41,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => 'Magento modules',
-            'template' => 'debug_versions_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_versions_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -56,7 +56,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "TIME: {$helper->getScriptDuration()}s MEM: {$helper->getMemoryUsage()}",
-            'template' => 'debug_performance_panel',
+            'template' => 'olctw_debug_performance_panel',
         );
         return $panel;
     }
@@ -71,7 +71,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "Search configurations",
-            'template' => 'debug_config_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_config_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -87,7 +87,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "{$nBlocks} used blocks",
-            'template' => 'debug_blocks_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_blocks_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -101,7 +101,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "Layout handlers",
-            'template' => 'debug_layout_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_layout_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -116,7 +116,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => 'Controller and request',
-            'template' => 'debug_controller_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_controller_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -132,7 +132,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "{$nModels} models, {$nQueries} queries",
-            'template' => 'debug_models_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_models_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -147,7 +147,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "Quick actions",
-            'template' => 'debug_utils_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_utils_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -162,7 +162,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "View logs",
-            'template' => 'debug_logs_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_logs_panel', // child block defined in layout xml
         );
         return $panel;
     }
@@ -176,7 +176,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
             'dom_id' => 'debug-panel-' . $title,
             'nav_title' => $title,
             'nav_subtitle' => "Customize Magneto Debug",
-            'template' => 'debug_preferences_panel', // child block defined in layout xml
+            'template' => 'olctw_debug_preferences_panel', // child block defined in layout xml
         );
         return $panel;
     }
