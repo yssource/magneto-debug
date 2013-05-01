@@ -57,7 +57,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onLayoutGenerate</method>
                     </olctw_debug_observer>
                 </observers>
@@ -67,7 +67,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onBlockToHtml</method>
                     </olctw_debug_observer>
                 </observers>
@@ -77,7 +77,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onBlockToHtmlAfter</method>
                     </olctw_debug_observer>
                 </observers>
@@ -87,7 +87,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onActionPostDispatch</method>
                     </olctw_debug_observer>
                 </observers>
@@ -97,7 +97,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onCollectionLoad</method>
                     </olctw_debug_observer>
                 </observers>
@@ -107,7 +107,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onEavCollectionLoad</method>
                     </olctw_debug_observer>
                 </observers>
@@ -118,7 +118,7 @@
             <!--     <observers> -->
             <!--         <olctw_debug_observer> -->
             <!--             <type>singleton</type> -->
-            <!--             <class>debug/observer</class> -->
+            <!--             <class>Olctw_Debug_Model_Observer</class> -->
             <!--             <method>onPrepareLayout</method> -->
             <!--         </olctw_debug_observer> -->
             <!--     </observers> -->
@@ -128,7 +128,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onModelLoad</method>
                     </olctw_debug_observer>
                 </observers>
@@ -138,7 +138,7 @@
                 <observers>
                     <olctw_debug_observer>
                         <type>singleton</type>
-                        <class>debug/observer</class>
+                        <class>Olctw_Debug_Model_Observer</class>
                         <method>onActionPreDispatch</method>
                     </olctw_debug_observer>
                 </observers>
