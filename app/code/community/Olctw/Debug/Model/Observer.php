@@ -202,16 +202,18 @@ class Olctw_Debug_Model_Observer {
         $event = $observer->getEvent();
         $object = $event->getObject();
         $key = get_class($object);
+        $currentModels = Mage::getSingleton('debug/observer')->getModels();
 
-        if (array_key_exists($key, $this->models)) {
-            $this->models[$key]['occurrences']++;
+        if (array_key_exists($key, $currentModels)) {
+            $currentModels[$key]['occurrences']++;
         } else {
             $model = array();
             $model['class'] = get_class($object);
             $model['resource_name'] = $object->getResourceName();
             $model['occurrences'] = 1;
-            $this->models[$key] = $model;
+            $currentModels[$key] = $model;
         }
+        Mage::getSingleton('debug/observer')->models = $currentModels;
 
         return $this;
     }
