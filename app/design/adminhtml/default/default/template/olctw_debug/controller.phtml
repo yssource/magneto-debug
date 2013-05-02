@@ -3,6 +3,9 @@ $controller = Mage::registry('controller');
 $request = $controller->getRequest();
 $cookies = $_COOKIE;
 $session = Mage::getSingleton('core/session');
+
+$fullControllerName = $request->getControllerModule() . '_' . str_replace(' ', '_', ucwords(str_replace('_', ' ', $request->getControllerName()))) . 'Controller';
+$rfClass = new ReflectionClass($fullControllerName);
 ?>
 <h4><?php $this->__('Controller information') ?></h4>
 <table>
@@ -18,12 +21,20 @@ $session = Mage::getSingleton('core/session');
             <td><?php echo $request->getRouteName() ?></td>
         </tr>
         <tr class="djDebugEven">
-            <td><?php echo $this->__('Controller Module/Name') ?></td>
-            <td><?php echo $request->getControllerModule() ?> / <?php echo $request->getControllerName() ?></td>
+            <td><?php echo $this->__('Controller Module') ?></td>
+            <td><?php echo $request->getControllerModule(); ?></td>
         </tr>
         <tr class="djDebugOdd">
+            <td><?php echo $this->__('Controller Name') ?></td>
+            <td><?php echo $fullControllerName; ?></td>
+        </tr>
+        <tr class="djDebugEven">
             <td><?php echo $this->__('Action Name') ?></td>
             <td><?php echo $request->getActionName() ?></td>
+        </tr>
+        <tr class="djDebugOdd">
+            <td><?php echo $this->__('Controller File') ?></td>
+            <td><?php echo $rfClass->getFileName() ?></td>
         </tr>
         <tr class="djDebugEven">
             <td><?php echo $this->__('Request Path') ?></td>
