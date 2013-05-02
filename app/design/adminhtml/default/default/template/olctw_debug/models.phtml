@@ -13,6 +13,7 @@ $queries = $this->getQueries();
             <th><?php echo $this->__('Resource Name') ?></th>
             <th><?php echo $this->__('Model Class') ?></th>
             <th><?php echo $this->__('Times Instantiated') ?></th>
+            <th><?php echo $this->__('File') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,10 @@ $queries = $this->getQueries();
                 <td><?php echo $item['resource_name'] ?></td>
                 <td><?php echo $item['class'] ?></td>
                 <td><?php echo $item['occurrences'] ?></td>
+                <td><?php
+                $rfClass = new ReflectionClass(new $item['class']);
+                echo $rfClass->getFileName();
+                ?></td>
             </tr>
             <?php $row++; ?>
         <?php endforeach ?>
