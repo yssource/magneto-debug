@@ -90,7 +90,7 @@ class Olctw_Debug_Model_Observer {
             } else {
                 $blockStruct['context'] = NULL;
             }
-            $this->layoutBlocks[] = $blockStruct;
+            Mage::getSingleton('debug/observer')->layoutBlocks[] = $blockStruct;
         }
     }
 
@@ -127,7 +127,7 @@ class Olctw_Debug_Model_Observer {
             $blockStruct['context'] = NULL;
         }
 
-        $this->blocks[$block->getNameInLayout()] = $blockStruct;
+        Mage::getSingleton('debug/observer')->blocks[$block->getNameInLayout()] = $blockStruct;
 
         return $this;
     }
@@ -149,10 +149,10 @@ class Olctw_Debug_Model_Observer {
             return $this;
         }
 
-        $blockStruct = $this->blocks[$block->getNameInLayout()];
+        $blockStruct = Mage::getSingleton('debug/observer')->blocks[$block->getNameInLayout()];
 
         $duration = microtime(true) - $blockStruct['rendered_at'];
-        $this->blocks[$block->getNameInLayout()]['rendered_in'] = $duration;
+        Mage::getSingleton('debug/observer')->blocks[$block->getNameInLayout()]['rendered_in'] = $duration;
     }
 
     function onActionPostDispatch(Varien_Event_Observer $event) {
@@ -163,7 +163,7 @@ class Olctw_Debug_Model_Observer {
         $actionStruct['action_name'] = $action->getFullActionName();
         $actionStruct['route_name'] = $action->getRequest()->getRouteName();
 
-        $this->_actions[] = $actionStruct;
+        Mage::getSingleton('debug/observer')->_actions[] = $actionStruct;
     }
 
     // controller_action_layout_generate_blocks_after
@@ -175,7 +175,7 @@ class Olctw_Debug_Model_Observer {
         $collectionStruct['sql'] = $collection->getSelectSql(true);
         $collectionStruct['type'] = 'mysql';
         $collectionStruct['class'] = get_class($collection);
-        $this->collections[] = $collectionStruct;
+        Mage::getSingleton('debug/observer')->collections[] = $collectionStruct;
     }
 
     function onEavCollectionLoad(Varien_Event_Observer $event) {
@@ -184,7 +184,7 @@ class Olctw_Debug_Model_Observer {
         $sqlStruct['sql'] = $collection->getSelectSql(true);
         $sqlStruct['type'] = 'eav';
         $sqlStruct['class'] = get_class($collection);
-        $this->collections[] = $sqlStruct;
+        Mage::getSingleton('debug/observer')->collections[] = $sqlStruct;
     }
 
     /* function onPrepareLayout(Varien_Event_Observer $observer){
