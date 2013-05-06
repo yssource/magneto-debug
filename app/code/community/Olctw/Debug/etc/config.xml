@@ -157,6 +157,7 @@
                 <debug_panel_layout_visibility>1</debug_panel_layout_visibility>
                 <debug_panel_controller_visibility>1</debug_panel_controller_visibility>
                 <debug_panel_models_visibility>1</debug_panel_models_visibility>
+                <debug_panel_rewrites_visibility>1</debug_panel_rewrites_visibility>
                 <debug_panel_utilities_visibility>1</debug_panel_utilities_visibility>
                 <debug_panel_preferences_visibility>1</debug_panel_preferences_visibility>
                 <debug_panel_logs_visibility>1</debug_panel_logs_visibility>

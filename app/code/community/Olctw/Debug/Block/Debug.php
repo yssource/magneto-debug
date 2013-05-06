@@ -17,20 +17,6 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
         return (string) Mage::getConfig()->getNode('modules/Olctw_Debug/version');
     }
 
-    private function createDummyPanel($title) {
-        $panel = array(
-            'title' => $title,
-            'has_content' => true,
-            'url' => NULL,
-            'dom_id' => 'debug-panel-' . $title,
-            'nav_title' => $title,
-            'nav_subtitle' => 'Subtitle for ' . $title,
-            'content' => 'Some content for ' . $title,
-            'template' => 'olctw_debug_versions_panel'
-        );
-        return $panel;
-    }
-
     protected function createVersionsPanel() {
         $title = 'Versions';
         $content = '';
@@ -180,6 +166,20 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
         );
         return $panel;
     }
+    
+    protected function createRewritesPanel() {
+        $title = 'Rewrites';
+        $panel = array(
+            'title' => $title,
+            'has_content' => true,
+            'url' => NULL,
+            'dom_id' => 'debug-panel-' . $title,
+            'nav_title' => $title,
+            'nav_subtitle' => "Show all rewrites",
+            'template' => 'olctw_debug_rewrites_panel', // child block defined in layout xml
+        );
+        return $panel;
+    }
 
     public function getPanels() {
         $panels = array();
@@ -190,6 +190,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
         $panels[] = $this->createModelsPanel();
         $panels[] = $this->createLayoutPanel();
         $panels[] = $this->createBlocksPanel();
+        $panels[] = $this->createRewritesPanel();
         $panels[] = $this->createUtilsPanel();
         $panels[] = $this->createLogsPanel();
         // TODO: Implement preferences panel (toggle panels visibility from toolbar)
