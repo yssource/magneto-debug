@@ -18,7 +18,7 @@ foreach ($this->getItems() AS $type => $items) {
                     <td><?php
                     $lines = array();
                     foreach($objects AS $object) {
-                        $lines[] = "{$object['object']} ( {$object['file']} )";
+                        $lines[] = "{$object['object']} ( <input type=\"text\" value=\"{$object['file']}\" size=\"40\" onclick=\"this.select();\" /> )";
                     }
                     echo implode('<br />', $lines);
                     ?></td>

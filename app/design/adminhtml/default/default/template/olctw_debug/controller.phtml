@@ -34,7 +34,7 @@ $rfClass = new ReflectionClass($fullControllerName);
         </tr>
         <tr class="djDebugOdd">
             <td><?php echo $this->__('Controller File') ?></td>
-            <td><?php echo $rfClass->getFileName() ?></td>
+            <td><input type="text" value="<?php echo $rfClass->getFileName(); ?>" size="40" onclick="this.select();" /></td>
         </tr>
         <tr class="djDebugEven">
             <td><?php echo $this->__('Request Path') ?></td>
