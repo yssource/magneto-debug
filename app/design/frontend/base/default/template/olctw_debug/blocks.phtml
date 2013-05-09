@@ -4,6 +4,7 @@
 $templateDirs = $this->getTemplateDirs();
 $blocks = $this->getItems();
 $layoutBlocks = $this->getLayoutBlocks();
+$designFilePath = realpath(Mage::getBaseDir('design')) . DS;
 ?>
 
 <h4><?php echo $this->__('Template path') ?></h4>
@@ -35,16 +36,24 @@ $layoutBlocks = $this->getLayoutBlocks();
         <?php foreach ($blocks as $block): ?>
             <tr class="<?php echo ( ($row % 2 ? 'djdebugodd' : 'djdebugeven')) ?>">
                 <td><?php echo $row ?></td>
-                <td><?php echo $block['layout_name'] ?></td>
+                <td><span style="color:grey;"><?php echo str_repeat("|&nbsp-&nbsp-&nbsp", $block['level']) ?></span><?php echo $block['layout_name'] ?></td>
                 <td>
                     <a href="<?php echo $this->getViewBlockUrl($block['class']) ?>"
                        class="remoteCall"><?php echo $block['class'] ?></a>
+                    <br /><input type="text" value="<?php
+                    echo Mage::helper('debug')->getBlockFilename($block['class']);
+                    ?>" size="40" onclick="this.select();" />
                 </td>
                 <td>
-                    <?php if ($block['template']): ?> 
+                    <?php
+                    if ($block['template']) {
+                        ?> 
                         <a href="<?php echo $this->getViewTemplateUrl($block['template']) ?>"
                            class="remoteCall toggletemplate"><?php echo $block['template'] ?></a>
-                       <?php endif; ?>
+                        <br /><input type="text" value="<?php
+                        echo $designFilePath . $block['template'];
+                        ?>" size="40" onclick="this.select();" />
+                                 <?php }; ?>
                 </td>
                 <td>
                     <?php echo $this->getRenderingTime($block) ?>
@@ -71,16 +80,23 @@ $layoutBlocks = $this->getLayoutBlocks();
         <?php foreach ($layoutBlocks as $block): ?>
             <tr class="<?php echo ( ($row % 2 ? 'djdebugodd' : 'djdebugeven')) ?>">
                 <td><?php echo $row ?></td>
-                <td><?php echo $block['layout_name'] ?></td>
+                <td><span style="color:grey;"><?php echo str_repeat("|&nbsp-&nbsp-&nbsp", $block['level']) ?></span><?php echo $block['layout_name'] ?></td>
                 <td>
                     <a href="<?php echo $this->getViewBlockUrl($block['class']) ?>"
                        class="remoteCall"><?php echo $block['class'] ?></a>
+                    <br /><input type="text" value="<?php
+                    echo Mage::helper('debug')->getBlockFilename($block['class']);
+                    ?>" size="40" onclick="this.select();" />
                 </td>
                 <td>
-                    <?php if ($block['template']): ?>
+                    <?php if ($block['template']) {
+                        ?>
                         <a href="<?php echo $this->getViewTemplateUrl($block['template']) ?>"
                            class="remoteCall toggletemplate"><?php echo $block['template'] ?></a>
-                    <?php endif; ?>
+                        <br /><input type="text" value="<?php
+                        echo $designFilePath . $block['template'];
+                        ?>" size="40" onclick="this.select();" />
+                                 <?php }; ?>
                 </td>
             </tr>
             <?php $row++; ?>
