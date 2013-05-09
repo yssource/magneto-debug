@@ -1,92 +1,50 @@
-# Magento Debug Toolbar 
-Based on robhudson's awesome work (<https://github.com/robhudson/django-debug-toolbar>) we've created a debug toolbar for Magento.
-It is installed as a Magento module without hacking Magento's core.
-
-Basic features are implemented and few others will come soon. Check the screenshots for current features: <https://github.com/madalinoprea/magneto-debug/wiki>
-
-Or demo video on YouTube: http://www.youtube.com/watch?v=aqvgrmebcu4
+# Olctw/Debug, a toolbar for developers
+Based on madalinoprea's awesome work (<https://github.com/madalinoprea/magneto-debug>),
+I extended it as Olctw/Debug to improve daily jobs related to Magento.
+The major differences with original one is this only for MagentoCommerce CE 1.7 or higher.
+It may also work on some other versions. But currently I only focus on this one.
 
 ## INSTALLATION 
+Just copy app, skin folders to your Magento working directory. If it's not working,
+you should check permissions and caches first.
 
-### A) Via Modman - Recommended (https://github.com/colinmollenhour/modman)
+## FEATURES
+ - Versions
+    - Show lists of extensions in three pools
+    - Toggle extensions on the fly
+ - Performance
+    - Show execution time and memory usage
+    - Clear Magento Cache
+ - Configuration
+    - Toggle template hints and inline translation
+    - Download current config as XML/Text
+    - Search in configs
+ - Controller
+    - Information of controller for current viewing page
+    - Variables of cookies, sessions, GET and POST
+ - Models
+    - Counter for models/queries for current page
+    - List of models, collections and queries for current page
+ - Layout
+    - Package information
+    - Handles of current request and view the full source on web
+    - Sources of page layout and layout updates
+ - Events
+    - List of events with observers
+    - List of dispatched events
+ - Blocks
+    - List of rendered blocks
+    - List of layout blocks
+ - Rewrites
+    - List of all rewrites
+ - Utilities
+    - Search grouped classes
+    - Search events
+ - Logs
+    - View system.log and exception.log on web
 
-#### 1) Install Modman:
-
-```
-bash < <(wget -O - https://raw.github.com/colinmollenhour/modman/master/modman-installer)
-```
-
-or
-
-```
-bash < <(curl -s https://raw.github.com/colinmollenhour/modman/master/modman-installer)
-source ~/.profile
-```
-
-#### 2) Allow symlinks for the templates directory (required for installation via Modman)
-
- - For newer Magento versions (1.5.1.0 & above) you just need enable 'Allow Symlinks' from System - Configuration / Advanced / Developer / Template Settings
- - For older Magento versions: http://www.tonigrigoriu.com/magento/magento-how-to-fix-template-path-errors-when-using-symlinks/
-
-#### 3) Install Debug Toolbar module:
- 
-<pre>
-cd [magento root folder]
-modman init
-modman clone https://github.com/madalinoprea/magneto-debug.git
-</pre>
-
- - Make sure you've cleaned Magento's cache to enable the new module; hit refresh
- 
-#### How to update
-I'm pretty lazy and I don't like to create Magento Connect packages. With modman you can effortlessly grab the latest changes from github.
-<pre>
-modman update magneto-debug
-</pre>
- - Clean Magento's cache to make sure new changes will be enabled.
-
-### B) Via Magento Connect
-Extension is not updated regularly. I recommend using modman.
-
-<pre>
-cd [magento root folder]
-sudo ./mage install community MagnetoDebug
-</pre>
-
-Magento Connect extension package is available here: http://www.magentocommerce.com/magento-connect/sstoiana/extension/6714/magnetodebug
-
-## FEATURES 
- - Now available in Admin (1.0.1 RC - fancy for I'm laizy to create Magento Connect package)
- - Magento module listing; Toggle Magento modules on the fly
- - Search configuration keys
- - Display peak memory usage, script execution time
- - Request information (controller name, action name, cookies variables, session variables, GET and POST variables)
- - Models instantiated
- - SQL queries executed for current request; ability to see queries' result or queries' execution plan (EXPLAIN)
- - List Magento configuration
- - Print layout handles for current request
- - Find xml files where a specific layout handle is defined
- - Created blocks, their associated templates; Preview templates' source code
- - Quick actions: 
-    - Toggle template hints
-    - Clear cache
-    - Toggle inline translation
-
-## KNOWN ISSUES
-We're working to correct these:
-
- - To enable SQL profiler manually you have to add in your local.xml profiler tag `<profiler>1</profiler>` under connection, like in the example below:
-<pre><code>
-    <default_setup>
-        <connection>
-            <host><![CDATA[/var/run/mysqld/mysqld.sock]]></host>
-            <username><![CDATA[root]]></username>
-            <password><![CDATA[]]></password>
-            <dbname><![CDATA[magento]]></dbname>
-            <active>1</active>
-            <profiler>1</profiler>
-        </connection>
-    </default_setup>
-</code></pre>
-
- - `Disable SQL Profiler` is not working, but `Enable SQL Profiler` works like a charm (or not)
+## Credits
+ - Major parts of the whole tool - <https://github.com/madalinoprea/magneto-debug>
+ - Rewrites pannel was inspired from <http://marius-strajeru.blogspot.tw/2013/03/get-class-rewrites.html>
+ - Events pannel was merged from <https://github.com/CyprienWebDev/magneto-debug>
+ - Current maintainer of this project - <http://olc.tw/en/>
