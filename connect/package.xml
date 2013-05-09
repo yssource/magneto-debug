@@ -9,10 +9,154 @@
     <summary>A debug tool bar for developers of magento commerce community 1.7 or higher.</summary>
     <description>Based on the version provided from https://github.com/madalinoprea/magneto-debug . We first try to make it working under 1.7 or higher version. Everyone is welcome to report issue and fork it in https://github.com/kiang/magneto-debug .</description>
     <notes>Just migrated the extension to be able to work under Magento community 1.7.0.0.</notes>
-    <authors><author><name>Just This Computer Studio ( http://olc.tw )</name><user>kiang</user><email>service@olc.tw</email></author></authors>
+    <authors>
+        <author>
+            <name>Just This Computer Studio ( http://olc.tw )</name>
+            <user>kiang</user>
+            <email>service@olc.tw</email>
+        </author>
+    </authors>
     <date>2013-05-01</date>
     <time>16:02:43</time>
-    <contents><target name="magecommunity"><dir name="Olctw"><dir name="Debug"><dir name="Block"><file name="Abstract.php" hash="e28c82e3bccc26c80917b94b50629439"/><file name="Blocks.php" hash="101756f33cbe798b305e387357492741"/><file name="Config.php" hash="726a712eb85246e55640a53bff33ea25"/><file name="Controller.php" hash="01394f0e5b7df1226fe71702426c43d0"/><file name="Debug.php" hash="763d11c18b44ca39db67a39e01e61e62"/><file name="Layout.php" hash="37978bc6b5f192409a0bd53f66f3bcf9"/><file name="Models.php" hash="62efb9f7b8c07de7e4afc7d72ae32d34"/><file name="Preferences.php" hash="db4df2f0eed05ee017b5f7dca3dc09f1"/><file name="Versions.php" hash="d9e101822db6b6f14fd3e3bdc78d6693"/></dir><dir name="Helper"><file name="Data.php" hash="1030805541b82c93cb53641f6c18f322"/></dir><dir name="Model"><file name="Observer.php" hash="7a2e2574e1261a9171ceba04b6454bcb"/></dir><dir name="controllers"><file name="IndexController.php" hash="7439129c897fac87d3412fd96cf48480"/><file name="PreferencesController.php" hash="b22689eb701cdf246399e08729b5cad2"/></dir><dir name="etc"><file name="config.xml" hash="a87e7e9b642e7b56e54dc51dbf8320a3"/><file name="system.xml" hash="0e7a9cb88940c60e555b69e917218386"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="olctw_debug"><file name="arrayformat.phtml" hash="182e206b9e3298c75b842cded4d0e082"/><file name="blocks.phtml" hash="e303425969eb0aafb47e744e5e7b19e5"/><file name="config.phtml" hash="ae389d2f340a5fe7d3ae40a683368065"/><file name="configsearch.phtml" hash="ca657bd4f91e6d8726c551c69ba4d576"/><file name="controller.phtml" hash="2c66129f8fa003b18bf32d3e4a85aa7d"/><file name="debug.phtml" hash="73011bb170e7611b8bb9c70e5ab82d6c"/><file name="groupedclasssearch.phtml" hash="9a15022d9cb41805b42ad3a6a645fb6f"/><file name="handledetails.phtml" hash="e24e48a597817fdbff2c474fa5cf2c9a"/><file name="layout.phtml" hash="cabae1232ed3c36df2194b7c8ed1aeba"/><file name="logdetails.phtml" hash="ed71a2facfe2a2b630e9f532ae84f1fa"/><file name="logs.phtml" hash="1f165856e61b67db3456acd5e23bf4a1"/><file name="models.phtml" hash="496cb60e17b91e967153450b2c8e44dd"/><file name="performance.phtml" hash="ba09274957f58ff223233bcc60e18ad4"/><file name="preferences.phtml" hash="c3234a8eab0ab61ec5a9baf1cbdd1c0c"/><file name="simplepanel.phtml" hash="e25f827850caeeb542caa6c3e389379c"/><file name="utils.phtml" hash="d3554c17eed75cdcb87c1d9351b9666a"/><file name="versions.phtml" hash="37c089ff3dca334f887c0fdb230ce6da"/></dir></dir><dir name="layout"><dir name="olctw_debug"><file name="debug.xml" hash="b775c800fecf8b2d0fef6ed9da9f4690"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="olctw_debug"><file name="arrayformat.phtml" hash="182e206b9e3298c75b842cded4d0e082"/><file name="blocks.phtml" hash="e303425969eb0aafb47e744e5e7b19e5"/><file name="config.phtml" hash="ae389d2f340a5fe7d3ae40a683368065"/><file name="configsearch.phtml" hash="ca657bd4f91e6d8726c551c69ba4d576"/><file name="controller.phtml" hash="2c66129f8fa003b18bf32d3e4a85aa7d"/><file name="debug.phtml" hash="73011bb170e7611b8bb9c70e5ab82d6c"/><file name="groupedclasssearch.phtml" hash="9a15022d9cb41805b42ad3a6a645fb6f"/><file name="handledetails.phtml" hash="e24e48a597817fdbff2c474fa5cf2c9a"/><file name="layout.phtml" hash="cabae1232ed3c36df2194b7c8ed1aeba"/><file name="logdetails.phtml" hash="ed71a2facfe2a2b630e9f532ae84f1fa"/><file name="logs.phtml" hash="1f165856e61b67db3456acd5e23bf4a1"/><file name="models.phtml" hash="496cb60e17b91e967153450b2c8e44dd"/><file name="performance.phtml" hash="ba09274957f58ff223233bcc60e18ad4"/><file name="preferences.phtml" hash="c3234a8eab0ab61ec5a9baf1cbdd1c0c"/><file name="simplepanel.phtml" hash="e25f827850caeeb542caa6c3e389379c"/><file name="utils.phtml" hash="d3554c17eed75cdcb87c1d9351b9666a"/><file name="versions.phtml" hash="37c089ff3dca334f887c0fdb230ce6da"/></dir></dir><dir name="layout"><dir name="olctw_debug"><file name="debug.xml" hash="b775c800fecf8b2d0fef6ed9da9f4690"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Olctw_Debug.xml" hash="fa7f2e82090d08d7d22b29cc33967249"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="olctw_debug"><dir name="css"><file name="toolbar.css" hash="a27ddb92c1a40d7f939259f3bf918419"/></dir><dir name="img"><file name="back.png" hash="64efd4aff01ee220183867b295390dc9"/><file name="back_hover.png" hash="2f40a29790969f1dc280740f2351cb34"/><file name="close.png" hash="6c12b2e804cc3027942473db15a03f48"/><file name="close_hover.png" hash="cc81bbd1cf1acb56325f590a55f88988"/><file name="djdt_vertical.png" hash="504d215839926b66de611020af6de7f0"/><file name="indicator.png" hash="b5677e8869a359a8941fd2fc3b5553f4"/><file name="loader.gif" hash="31f39e1edfd811606e45e4de38f16a49"/><file name="panel_bg.png" hash="0eabad5fe24f2dab304977b924040b8d"/></dir><dir name="js"><file name="jquery.cookie.js" hash="384772142d1907d7d3aea3ac11fad9d0"/><file name="jquery.js" hash="03733a1e6214125f2ebb5eade76b2561"/><file name="toolbar.js" hash="fafa0a4862e046c9aad1cb4d64ee9a4f"/></dir></dir></dir></dir></dir></target></contents>
+    <contents>
+        <target name="magecommunity">
+            <dir name="Olctw">
+                <dir name="Debug">
+                    <dir name="Block">
+                        <file name="Abstract.php" hash="e28c82e3bccc26c80917b94b50629439"/>
+                        <file name="Blocks.php" hash="101756f33cbe798b305e387357492741"/>
+                        <file name="Config.php" hash="726a712eb85246e55640a53bff33ea25"/>
+                        <file name="Controller.php" hash="01394f0e5b7df1226fe71702426c43d0"/>
+                        <file name="Debug.php" hash="763d11c18b44ca39db67a39e01e61e62"/>
+                        <file name="Layout.php" hash="37978bc6b5f192409a0bd53f66f3bcf9"/>
+                        <file name="Models.php" hash="62efb9f7b8c07de7e4afc7d72ae32d34"/>
+                        <file name="Preferences.php" hash="db4df2f0eed05ee017b5f7dca3dc09f1"/>
+                        <file name="Versions.php" hash="d9e101822db6b6f14fd3e3bdc78d6693"/>
+                    </dir>
+                    <dir name="Helper">
+                        <file name="Data.php" hash="1030805541b82c93cb53641f6c18f322"/>
+                    </dir>
+                    <dir name="Model">
+                        <file name="Observer.php" hash="7a2e2574e1261a9171ceba04b6454bcb"/>
+                    </dir>
+                    <dir name="controllers">
+                        <file name="IndexController.php" hash="7439129c897fac87d3412fd96cf48480"/>
+                        <file name="PreferencesController.php" hash="b22689eb701cdf246399e08729b5cad2"/>
+                    </dir>
+                    <dir name="etc">
+                        <file name="config.xml" hash="a87e7e9b642e7b56e54dc51dbf8320a3"/>
+                        <file name="system.xml" hash="0e7a9cb88940c60e555b69e917218386"/>
+                    </dir>
+                </dir>
+            </dir>
+        </target>
+        <target name="magedesign">
+            <dir name="frontend">
+                <dir name="base">
+                    <dir name="default">
+                        <dir name="template">
+                            <dir name="olctw_debug">
+                                <file name="arrayformat.phtml" hash="182e206b9e3298c75b842cded4d0e082"/>
+                                <file name="blocks.phtml" hash="e303425969eb0aafb47e744e5e7b19e5"/>
+                                <file name="config.phtml" hash="ae389d2f340a5fe7d3ae40a683368065"/>
+                                <file name="configsearch.phtml" hash="ca657bd4f91e6d8726c551c69ba4d576"/>
+                                <file name="controller.phtml" hash="2c66129f8fa003b18bf32d3e4a85aa7d"/>
+                                <file name="debug.phtml" hash="73011bb170e7611b8bb9c70e5ab82d6c"/>
+                                <file name="groupedclasssearch.phtml" hash="9a15022d9cb41805b42ad3a6a645fb6f"/>
+                                <file name="handledetails.phtml" hash="e24e48a597817fdbff2c474fa5cf2c9a"/>
+                                <file name="layout.phtml" hash="cabae1232ed3c36df2194b7c8ed1aeba"/>
+                                <file name="logdetails.phtml" hash="ed71a2facfe2a2b630e9f532ae84f1fa"/>
+                                <file name="logs.phtml" hash="1f165856e61b67db3456acd5e23bf4a1"/>
+                                <file name="models.phtml" hash="496cb60e17b91e967153450b2c8e44dd"/>
+                                <file name="performance.phtml" hash="ba09274957f58ff223233bcc60e18ad4"/>
+                                <file name="preferences.phtml" hash="c3234a8eab0ab61ec5a9baf1cbdd1c0c"/>
+                                <file name="simplepanel.phtml" hash="e25f827850caeeb542caa6c3e389379c"/>
+                                <file name="utils.phtml" hash="d3554c17eed75cdcb87c1d9351b9666a"/>
+                                <file name="versions.phtml" hash="37c089ff3dca334f887c0fdb230ce6da"/>
+                            </dir>
+                        </dir>
+                        <dir name="layout">
+                            <dir name="olctw_debug">
+                                <file name="debug.xml" hash="b775c800fecf8b2d0fef6ed9da9f4690"/>
+                            </dir>
+                        </dir>
+                    </dir>
+                </dir>
+            </dir>
+            <dir name="adminhtml">
+                <dir name="default">
+                    <dir name="default">
+                        <dir name="template">
+                            <dir name="olctw_debug">
+                                <file name="arrayformat.phtml" hash="182e206b9e3298c75b842cded4d0e082"/>
+                                <file name="blocks.phtml" hash="e303425969eb0aafb47e744e5e7b19e5"/>
+                                <file name="config.phtml" hash="ae389d2f340a5fe7d3ae40a683368065"/>
+                                <file name="configsearch.phtml" hash="ca657bd4f91e6d8726c551c69ba4d576"/>
+                                <file name="controller.phtml" hash="2c66129f8fa003b18bf32d3e4a85aa7d"/>
+                                <file name="debug.phtml" hash="73011bb170e7611b8bb9c70e5ab82d6c"/>
+                                <file name="groupedclasssearch.phtml" hash="9a15022d9cb41805b42ad3a6a645fb6f"/>
+                                <file name="handledetails.phtml" hash="e24e48a597817fdbff2c474fa5cf2c9a"/>
+                                <file name="layout.phtml" hash="cabae1232ed3c36df2194b7c8ed1aeba"/>
+                                <file name="logdetails.phtml" hash="ed71a2facfe2a2b630e9f532ae84f1fa"/>
+                                <file name="logs.phtml" hash="1f165856e61b67db3456acd5e23bf4a1"/>
+                                <file name="models.phtml" hash="496cb60e17b91e967153450b2c8e44dd"/>
+                                <file name="performance.phtml" hash="ba09274957f58ff223233bcc60e18ad4"/>
+                                <file name="preferences.phtml" hash="c3234a8eab0ab61ec5a9baf1cbdd1c0c"/>
+                                <file name="simplepanel.phtml" hash="e25f827850caeeb542caa6c3e389379c"/>
+                                <file name="utils.phtml" hash="d3554c17eed75cdcb87c1d9351b9666a"/>
+                                <file name="versions.phtml" hash="37c089ff3dca334f887c0fdb230ce6da"/>
+                            </dir>
+                        </dir>
+                        <dir name="layout">
+                            <dir name="olctw_debug">
+                                <file name="debug.xml" hash="b775c800fecf8b2d0fef6ed9da9f4690"/>
+                            </dir>
+                        </dir>
+                    </dir>
+                </dir>
+            </dir>
+        </target>
+        <target name="mageetc">
+            <dir name="modules">
+                <file name="Olctw_Debug.xml" hash="fa7f2e82090d08d7d22b29cc33967249"/>
+            </dir>
+        </target>
+        <target name="mageskin">
+            <dir name="frontend">
+                <dir name="base">
+                    <dir name="default">
+                        <dir name="olctw_debug">
+                            <dir name="css">
+                                <file name="toolbar.css" hash="a27ddb92c1a40d7f939259f3bf918419"/>
+                            </dir>
+                            <dir name="img">
+                                <file name="back.png" hash="64efd4aff01ee220183867b295390dc9"/>
+                                <file name="back_hover.png" hash="2f40a29790969f1dc280740f2351cb34"/>
+                                <file name="close.png" hash="6c12b2e804cc3027942473db15a03f48"/>
+                                <file name="close_hover.png" hash="cc81bbd1cf1acb56325f590a55f88988"/>
+                                <file name="djdt_vertical.png" hash="504d215839926b66de611020af6de7f0"/>
+                                <file name="indicator.png" hash="b5677e8869a359a8941fd2fc3b5553f4"/>
+                                <file name="loader.gif" hash="31f39e1edfd811606e45e4de38f16a49"/>
+                                <file name="panel_bg.png" hash="0eabad5fe24f2dab304977b924040b8d"/>
+                            </dir>
+                            <dir name="js">
+                                <file name="jquery.cookie.js" hash="384772142d1907d7d3aea3ac11fad9d0"/>
+                                <file name="jquery.js" hash="03733a1e6214125f2ebb5eade76b2561"/>
+                                <file name="toolbar.js" hash="fafa0a4862e046c9aad1cb4d64ee9a4f"/>
+                            </dir>
+                        </dir>
+                    </dir>
+                </dir>
+            </dir>
+        </target>
+    </contents>
     <compatible/>
-    <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php></required></dependencies>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.0.0</min>
+                <max>6.0.0</max>
+            </php>
+        </required>
+    </dependencies>
 </package>
