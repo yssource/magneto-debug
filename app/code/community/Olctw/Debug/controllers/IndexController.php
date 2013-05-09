@@ -413,6 +413,61 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
         }
     }
 
+    public function searchEventAction() {
+        if ($this->getRequest()->isPost()) {
+            $uri = $this->getRequest()->getPost('uri', '');
+            $uri = trim($uri);
+            if (strlen($uri) < 1) {
+                $this->getResponse()->setBody($this->__('Please fill in a search query'));
+            }
+
+            $codePoolDir = Mage::getBaseDir('code');
+            $codePool = array(
+                'local' => array(
+                    'path' => "$codePoolDir/local",
+                    'files' => array()
+                ),
+                'community' => array(
+                    'path' => "$codePoolDir/community",
+                    'files' => array()
+                ),
+                'core' => array(
+                    'path' => "$codePoolDir/core",
+                    'files' => array()
+                )
+            );
+            foreach ($codePool as $pool => &$item) {
+                exec("find {$codePoolDir}/{$pool} -type f -name '*.php'", $item['files']);
+            }
+
+            // FILTERING RESULTS
+            $pattern = "@Mage::dispatchEvent\(([ \t\n\r]*[\'\"]{$uri}[\'\"])@i";
+            foreach ($codePool as $pool => &$item) {
+                $item['files'] = array_filter($item['files'], function(&$file) use ($uri, $pattern) {
+                            if (preg_match($pattern, file_get_contents($file), $matches)) {
+                                $file = array(
+                                    'name' => $file,
+                                    'event' => $matches[1]
+                                );
+                                return true;
+                            }
+                        });
+            }
+
+            // REMOVING BASE PATH IN FILES PATH
+            foreach ($codePool as $pool => &$item) {
+                array_walk($item['files'], function(&$file) use ($pool, $codePoolDir) {
+                            $file['name'] = str_replace("$codePoolDir/$pool/", "", $file['name']);
+                        });
+            }
+
+            $block = $this->getLayout()->createBlock('debug/abstract');
+            $block->setTemplate('olctw_debug/eventsearch.phtml');
+            $block->assign('items', $codePool);
+            $this->getResponse()->setBody($block->toHtml());
+        }
+    }
+
     /**
      * Seach config
      *

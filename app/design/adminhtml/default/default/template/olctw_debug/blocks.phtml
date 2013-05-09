@@ -36,7 +36,7 @@ $designFilePath = realpath(Mage::getBaseDir('design')) . DS;
         <?php foreach ($blocks as $block): ?>
             <tr class="<?php echo ( ($row % 2 ? 'djdebugodd' : 'djdebugeven')) ?>">
                 <td><?php echo $row ?></td>
-                <td><?php echo $block['layout_name'] ?></td>
+                <td><span style="color:grey;"><?php echo str_repeat("|&nbsp-&nbsp-&nbsp", $block['level']) ?></span><?php echo $block['layout_name'] ?></td>
                 <td>
                     <a href="<?php echo $this->getViewBlockUrl($block['class']) ?>"
                        class="remoteCall"><?php echo $block['class'] ?></a>
@@ -80,7 +80,7 @@ $designFilePath = realpath(Mage::getBaseDir('design')) . DS;
         <?php foreach ($layoutBlocks as $block): ?>
             <tr class="<?php echo ( ($row % 2 ? 'djdebugodd' : 'djdebugeven')) ?>">
                 <td><?php echo $row ?></td>
-                <td><?php echo $block['layout_name'] ?></td>
+                <td><span style="color:grey;"><?php echo str_repeat("|&nbsp-&nbsp-&nbsp", $block['level']) ?></span><?php echo $block['layout_name'] ?></td>
                 <td>
                     <a href="<?php echo $this->getViewBlockUrl($block['class']) ?>"
                        class="remoteCall"><?php echo $block['class'] ?></a>

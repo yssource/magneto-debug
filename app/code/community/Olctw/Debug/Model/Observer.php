@@ -9,21 +9,59 @@ class Olctw_Debug_Model_Observer {
     private $models = array();
     private $blocks = array();
     private $layoutBlocks = array();
+    private $events = array();
 
     public function getModels() {
         return $this->models;
     }
 
+    public function getCollections() {
+        return $this->collections;
+    }
+
+    public function getEvents() {
+        return $this->events;
+    }
+
+    public function getFilteredEvents() {
+        $flags = array();
+        $eventsFiltered = array_filter($this->events, function($item) use (&$flags) {
+                    if (array_key_exists($item['name'], $flags)) {
+                        $flags[$item['name']] += 1;
+                        return false;
+                    } else {
+                        $flags[$item['name']] = 1;
+                        return true;
+                    }
+                });
+        array_walk($eventsFiltered, function(&$item) use ($flags) {
+                    $item['count'] = $flags[$item['name']];
+                });
+        return $eventsFiltered;
+    }
+
     public function getBlocks() {
-        return $this->blocks;
+        $blocks = $this->blocks;
+        $result = array();
+        self::addBlockLevelRecurse($result, $blocks);
+        return $result;
     }
 
     public function getLayoutBlocks() {
-        return $this->layoutBlocks;
+        $blocks = $this->layoutBlocks;
+        $result = array();
+        self::addBlockLevelRecurse($result, $blocks);
+        return $result;
     }
 
-    public function getCollections() {
-        return $this->collections;
+    static protected function addBlockLevelRecurse(&$tree, $blocks, $name = '', $level = 0) {
+        foreach ($blocks as $key => $block) {
+            if ($block['parent'] == $name) {
+                $block['level'] = $level;
+                $tree[$key] = $block;
+                self::addBlockLevelRecurse($tree, $blocks, $block['layout_name'], $level + 1);
+            }
+        }
     }
 
     // public function getLayoutUpdates() { return $this->layoutUpdates; }
@@ -71,6 +109,15 @@ class Olctw_Debug_Model_Observer {
         return $queries;
     }
 
+    public function onEventDispatch(Varien_Event_Observer $observer) {
+        $event = $observer->getEvent();
+        $eventStruct = array(
+            'name' => $event->getEventname(),
+            'observers' => $event->getEventobservers()
+        );
+        $this->events[] = $eventStruct;
+    }
+
     public function onLayoutGenerate(Varien_Event_Observer $observer) {
         $layout = $observer->getEvent()->getLayout();
         $layoutBlocks = $layout->getAllBlocks();
@@ -78,6 +125,8 @@ class Olctw_Debug_Model_Observer {
         // After layout generates all the blocks
         foreach ($layoutBlocks as $block) {
             $blockStruct = array();
+            $parentBlock = $block->getParentBlock();
+            $blockStruct['parent'] = isset($parentBlock) ? $parentBlock->getNameInLayout() : "";
             $blockStruct['class'] = get_class($block);
             $blockStruct['layout_name'] = $block->getNameInLayout();
             if (method_exists($block, 'getTemplateFile')) {
@@ -112,6 +161,8 @@ class Olctw_Debug_Model_Observer {
         }
 
         $blockStruct = array();
+        $parentBlock = $block->getParentBlock();
+        $blockStruct['parent'] = isset($parentBlock) ? $parentBlock->getNameInLayout() : "";
         $blockStruct['class'] = get_class($block);
         $blockStruct['layout_name'] = $block->getNameInLayout();
         $blockStruct['rendered_at'] = microtime(true);

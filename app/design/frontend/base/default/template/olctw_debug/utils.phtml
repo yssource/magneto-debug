@@ -40,3 +40,39 @@
         </tbody>
     </table>
 </div>
+
+<h4>Event Search</h4>
+<form action="#" id="event-search-form" onSubmit="submitEventSearch();
+        return false;">
+    <input name="uri" class="input-text required-entry" type="search" size="120" />
+    <input type="button" onClick="submitEventSearch()" value="<?php echo $this->__('Search Event Class') ?>" />
+</form>
+<p>
+    Search examples (regex allowed): <em>\w*controller\w*</em>, <em>model_load_after</em>, etc.
+</p>
+
+<script type="text/javascript">
+    function submitEventSearch() {
+        var request = new Ajax.Updater(
+                'event-search-results',
+                '<?php echo $this->getUrl("debug/index/searchEvent") ?>',
+                {
+                    method: 'post',
+                    parameters: Form.serialize($('event-search-form'))
+                });
+    }
+</script>
+<div id="event-search-results">
+    <table>
+        <thead>
+            <tr>
+                <th><?php echo $this->__("#") ?></th>
+                <th><?php echo $this->__("Code pool") ?></th>
+                <th><?php echo $this->__("Dispatcher") ?></th>
+                <th><?php echo $this->__("Corresponding event") ?></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

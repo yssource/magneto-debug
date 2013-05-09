@@ -32,9 +32,10 @@ $designPackage = Mage::getSingleton('core/design_package');
     </tbody>
 </table>
 
-<h4><?php echo $this->__('Handles for this request');
-echo "(" . count($layoutHandles) . ")"
-?></h4>
+<h4><?php
+    echo $this->__('Handles for this request');
+    echo "(" . count($layoutHandles) . ")"
+    ?></h4>
 <table>
     <thead>
         <tr>
@@ -43,12 +44,12 @@ echo "(" . count($layoutHandles) . ")"
     </thead>
     <tbody>
         <?php $row = 0; ?>
-<?php foreach ($layoutHandles as $item): ?>
+        <?php foreach ($layoutHandles as $item): ?>
             <tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
                 <td><a class="remoteCall toggleTemplate" href="<?php echo $this->getViewHandleUrl($item) ?>"><?php echo $item ?></a></td>
             </tr>
             <?php $row++; ?>
-<?php endforeach ?>
+        <?php endforeach ?>
     </tbody>
 </table>
 
@@ -72,7 +73,7 @@ echo "(" . count($layoutHandles) . ")"
     </thead>
     <tbody>
         <?php $row = 0; ?>
-<?php foreach ($layoutUpdates as $item): ?>
+        <?php foreach ($layoutUpdates as $item): ?>
             <tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
                 <td><?php echo $row ?>.</td>
                 <td class="syntax">
@@ -80,7 +81,7 @@ echo "(" . count($layoutHandles) . ")"
                 </td>
             </tr>
             <?php $row++; ?>
-<?php endforeach ?>
+        <?php endforeach ?>
     </tbody>
 </table>
 

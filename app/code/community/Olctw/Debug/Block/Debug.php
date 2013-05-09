@@ -181,6 +181,21 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
         return $panel;
     }
 
+    protected function createEventsPanel() {
+        $title = 'Events';
+        $nEvents = count(Mage::getSingleton('debug/observer')->getFilteredEvents());
+        $panel = array(
+            'title' => $title,
+            'has_content' => true,
+            'url' => NULL,
+            'dom_id' => 'debug-panel-' . $title,
+            'nav_title' => $title,
+            'nav_subtitle' => "{$nEvents} dispatched events",
+            'template' => 'olctw_debug_events_panel'        // child block defined in layout xml
+        );
+        return $panel;
+    }
+
     public function getPanels() {
         $panels = array();
         $panels[] = $this->createVersionsPanel();
@@ -189,6 +204,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
         $panels[] = $this->createControllerPanel();
         $panels[] = $this->createModelsPanel();
         $panels[] = $this->createLayoutPanel();
+        $panels[] = $this->createEventsPanel();
         $panels[] = $this->createBlocksPanel();
         $panels[] = $this->createRewritesPanel();
         $panels[] = $this->createUtilsPanel();
