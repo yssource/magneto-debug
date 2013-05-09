@@ -16,12 +16,12 @@ foreach ($this->getItems() AS $type => $items) {
                 <tr class="<?php echo ((++$row % 2) ? 'djDebugOdd' : 'djDebugEven') ?>">
                     <td><?php echo $path; ?></td>
                     <td><?php
-                    $lines = array();
-                    foreach($objects AS $object) {
-                        $lines[] = "{$object['object']} ( <input type=\"text\" value=\"{$object['file']}\" size=\"40\" onclick=\"this.select();\" /> )";
-                    }
-                    echo implode('<br />', $lines);
-                    ?></td>
+                        $lines = array();
+                        foreach ($objects AS $object) {
+                            $lines[] = "{$object['object']} ( <input type=\"text\" value=\"{$object['file']}\" size=\"40\" onclick=\"this.select();\" /> )";
+                        }
+                        echo implode('<br />', $lines);
+                        ?></td>
                 </tr>
             <?php } // end of foreach ($items AS $item) { ?>
         </tbody>

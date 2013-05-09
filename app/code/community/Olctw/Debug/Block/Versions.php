@@ -18,8 +18,9 @@ class Olctw_Debug_Block_Versions extends Olctw_Debug_Block_Abstract {
         foreach ($modulesConfig as $node) {
             foreach ($node as $module => $data) {
                 $codePool = $data->codePool->asArray();
-                if(empty($codePool)) continue;
-                if(is_array($codePool)) {
+                if (empty($codePool))
+                    continue;
+                if (is_array($codePool)) {
                     $codePool = implode('.', $codePool);
                 }
                 $items[$codePool][] = array(

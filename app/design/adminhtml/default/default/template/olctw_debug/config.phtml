@@ -24,7 +24,8 @@
 </dl>
 <br/>
 
-<form action="#" id="config-search-form" onSubmit="handlerFunction(); return false;">
+<form action="#" id="config-search-form" onSubmit="handlerFunction();
+        return false;">
     <input name="query" class="input-text required-entry" type="search" size="40" />
     <input type="button" onClick="handlerFunction()" value="<?php echo $this->__('Search Config') ?>" />
 </form>
@@ -33,14 +34,14 @@
 </p>
 
 <script type="text/javascript">
-    function handlerFunction(){
+    function handlerFunction() {
         var request = new Ajax.Updater(
-        'config-search-results',
-        '<?php echo $this->getSearchConfigUrl() ?>',
-        {
-            method: 'post',
-            parameters: Form.serialize($('config-search-form'))
-        });
+                'config-search-results',
+                '<?php echo $this->getSearchConfigUrl() ?>',
+                {
+                    method: 'post',
+                    parameters: Form.serialize($('config-search-form'))
+                });
     }
 </script>
 <div id="config-search-results">

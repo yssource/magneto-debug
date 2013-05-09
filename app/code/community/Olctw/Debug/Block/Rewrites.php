@@ -4,6 +4,7 @@ class Olctw_Debug_Block_Rewrites extends Olctw_Debug_Block_Abstract {
     /*
      * Forked from http://marius-strajeru.blogspot.tw/2013/03/get-class-rewrites.html
      */
+
     protected function getItems() {
         $folders = array('app/code/local/', 'app/code/community/'); //folders to parse
         $configFiles = array();

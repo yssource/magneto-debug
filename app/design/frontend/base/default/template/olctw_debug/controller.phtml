@@ -87,8 +87,8 @@ $rfClass = new ReflectionClass($fullControllerName);
         <?php foreach ($_SESSION as $namespace => $data): ?>
             <tbody>
                 <tr><th colspan="2" style="text-align: center; font-size: 120%; font-weight: bold;"><?php echo $namespace ?></th></tr>
-                <?php $row = 0; ?>
-                <?php foreach ($data as $key => $value): ?>
+                        <?php $row = 0; ?>
+                        <?php foreach ($data as $key => $value): ?>
                     <tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
                         <td><?php echo htmlspecialchars($key) ?></td>
                         <td>

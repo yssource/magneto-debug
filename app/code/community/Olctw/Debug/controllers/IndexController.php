@@ -1,7 +1,7 @@
 <?php
 
 class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
-    
+
     /**
      * Return block content
      *
@@ -117,7 +117,7 @@ class Olctw_Debug_IndexController extends Mage_Core_Controller_Front_Action {
                 '_area' => $designPackage->getArea(),
                 '_package' => $designPackage->getPackageName(),
                 '_theme' => $designPackage->getTheme('layout')
-                    ));
+            ));
             if (!is_readable($filename)) {
                 continue;
             }

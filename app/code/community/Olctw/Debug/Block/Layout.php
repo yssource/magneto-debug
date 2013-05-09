@@ -10,7 +10,7 @@ class Olctw_Debug_Block_Layout extends Olctw_Debug_Block_Abstract {
                     'storeId' => $designPackage->getStore()->getId(),
                     'area' => $designPackage->getArea(),
                     '_store' => self::DEFAULT_STORE_ID
-                ));
+        ));
     }
 
 }

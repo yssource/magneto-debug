@@ -24,8 +24,8 @@ $queries = $this->getQueries();
                 <td><?php echo $item['class'] ?></td>
                 <td><?php echo $item['occurrences'] ?></td>
                 <td><?php
-                $rfClass = new ReflectionClass(new $item['class']);
-                ?><input type="text" value="<?php echo $rfClass->getFileName(); ?>" size="40" onclick="this.select();" /></td>
+                    $rfClass = new ReflectionClass(new $item['class']);
+                    ?><input type="text" value="<?php echo $rfClass->getFileName(); ?>" size="40" onclick="this.select();" /></td>
             </tr>
             <?php $row++; ?>
         <?php endforeach ?>

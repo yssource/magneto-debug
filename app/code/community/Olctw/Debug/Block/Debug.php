@@ -166,7 +166,7 @@ class Olctw_Debug_Block_Debug extends Olctw_Debug_Block_Abstract {
         );
         return $panel;
     }
-    
+
     protected function createRewritesPanel() {
         $title = 'Rewrites';
         $panel = array(

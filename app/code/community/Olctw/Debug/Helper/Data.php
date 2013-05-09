@@ -29,8 +29,7 @@ class Olctw_Debug_Helper_Data extends Mage_Core_Helper_Abstract {
             $allowedIps = Mage::getStoreConfig('dev/restrict/allow_ips');
             if ($isDebugEnable && !empty($allowedIps) && !empty($clientIp)) {
                 $allowedIps = preg_split('#\s*,\s*#', $allowedIps, null, PREG_SPLIT_NO_EMPTY);
-                if (array_search($clientIp, $allowedIps) === false
-                        && array_search(Mage::helper('core/http')->getHttpHost(), $allowedIps) === false) {
+                if (array_search($clientIp, $allowedIps) === false && array_search(Mage::helper('core/http')->getHttpHost(), $allowedIps) === false) {
                     $allow = false;
                 }
             }
