@@ -1270,6 +1270,10 @@ class Mage_Core_Model_App
 
     public function dispatchEvent($eventName, $args)
     {
+        // CUSTOM CODE
+        $eventsToSkip = array('core_event_before_dispatch');
+        // END CUSTOM CODE
+        
         foreach ($this->_events as $area=>$events) {
             if (!isset($events[$eventName])) {
                 $eventConfig = $this->getConfig()->getEventConfig($area, $eventName);
@@ -1290,6 +1294,15 @@ class Mage_Core_Model_App
                 $this->_events[$area][$eventName]['observers'] = $observers;
             }
             if (false===$events[$eventName]) {
+                // CUSTOM CODE
+                if (!in_array($eventName, $eventsToSkip)) {
+                    $this->dispatchEvent('core_event_before_dispatch', array(
+                        'eventname' => $eventName,
+                        'eventobservers' => array()
+                            )
+                    );
+                }
+                // END CUSTOM CODE
                 continue;
             } else {
                 $event = new Varien_Event($args);
@@ -1319,6 +1332,16 @@ class Mage_Core_Model_App
                 }
                 Varien_Profiler::stop('OBSERVER: '.$obsName);
             }
+            
+            // CUSTOM CODE
+            if (!in_array($eventName, $eventsToSkip)) {
+                $this->dispatchEvent('core_event_before_dispatch', array(
+                    'eventname' => $eventName,
+                    'eventobservers' => ($this->_events[$area][$eventName] !== false) ? $events[$eventName]['observers'] : array()
+                        )
+                );
+            }
+            // END CUSTOM CODE
         }
         return $this;
     }
