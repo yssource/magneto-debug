@@ -18,7 +18,11 @@ foreach ($this->getItems() AS $type => $items) {
                     <td><?php
                         $lines = array();
                         foreach ($objects AS $object) {
-                            $lines[] = "{$object['object']} ( <input type=\"text\" value=\"{$object['file']}\" size=\"40\" onclick=\"this.select();\" /> )";
+                            if($object['active']){
+                                $lines[] = "{$object['object']} ( <input type=\"text\" value=\"{$object['file']}\" size=\"40\" onclick=\"this.select();\" /> )";
+                            }else{
+                                $lines[] = "<span style=\"color: red\">{$object['object']}</span> ( <input type=\"text\" value=\"{$object['file']}\" size=\"40\" onclick=\"this.select();\" /> )";
+                            }
                         }
                         echo implode('<br />', $lines);
                         ?></td>

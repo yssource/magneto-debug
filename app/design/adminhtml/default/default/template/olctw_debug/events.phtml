@@ -39,10 +39,12 @@ $eventsWithObservers = $this->getEventsWithObservers();
                                             <td><?php echo $observer['type'] ?></td>
                                             <td><?php echo $observer['method'] ?></td>
                                             <td>
+					    	<?php if (isset($observer['data'])):?>
                                                 <?php foreach ($observer['data'] as $data): ?>
                                                     <?php $type = ($data['val_type'] == 'object') ? $data['val_class'] : $data['val_type']; ?>
                                                     <?php echo "&nbsp&nbsp{$data['key']} ({$type}) <br />" ?>
                                                 <?php endforeach; ?>
+						<?php endif; ?>
                                             </td>
                                         </tr>
                                     </tbody>
