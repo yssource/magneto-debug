@@ -1,0 +1,10 @@
+# Comments are supported, begin a line with a hash
+app/code/community/Mage/Core/Model/App.php app/code/community/Mage/Core/Model/App.php
+app/code/community/Olctw/Debug app/code/community/Olctw/Debug
+app/design/adminhtml/default/default/layout/olctw_debug app/design/adminhtml/default/default/layout/olctw_debug
+app/design/adminhtml/default/default/template/olctw_debug app/design/adminhtml/default/default/template/olctw_debug
+app/design/frontend/base/default/layout/olctw_debug app/design/frontend/base/default/layout/olctw_debug
+app/design/frontend/base/default/template/olctw_debug app/design/frontend/base/default/template/olctw_debug
+skin/design/frontend/base/default/olctw_debug skin/design/frontend/base/default/olctw_debug
+app/etc/modules/Olctw_Debug.xml app/etc/modules/Olctw_Debug.xml
+
