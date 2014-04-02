@@ -17,6 +17,8 @@ class Olctw_Debug_Block_Versions extends Olctw_Debug_Block_Abstract {
         $modulesConfig = Mage::getConfig()->getModuleConfig();
         foreach ($modulesConfig as $node) {
             foreach ($node as $module => $data) {
+                if(!isset($data->codePool)) continue;
+
                 $codePool = $data->codePool->asArray();
                 if (empty($codePool))
                     continue;
